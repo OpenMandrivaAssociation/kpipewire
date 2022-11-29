@@ -4,7 +4,7 @@
 
 Summary:	Library for working with PipeWire
 Name:		kpipewire
-Version:	5.26.3
+Version:	5.26.4
 Release:	1
 License:	LGPL
 Group:		System/Libraries
