@@ -4,7 +4,7 @@
 
 Summary:	Library for working with PipeWire
 Name:		kpipewire
-Version:	5.26.5
+Version:	5.27.0
 Release:	1
 License:	LGPL
 Group:		System/Libraries
@@ -49,6 +49,7 @@ Libraries for working with PipeWire
 
 %files -n %{libname} -f kpipewire5.lang
 %{_libdir}/libKPipeWire.so.*
+%{_libdir}/libKPipeWireDmaBuf.so.*
 %{_libdir}/libKPipeWireRecord.so.*
 %{_libdir}/qt5/qml/org/kde/pipewire
 %{_datadir}/qlogging-categories5/*.categories
@@ -65,6 +66,7 @@ Development files for %{name}.
 %{_includedir}/KPipeWire
 %{_libdir}/cmake/KPipeWire
 %{_libdir}/libKPipeWire.so
+%{_libdir}/libKPipeWireDmaBuf.so
 %{_libdir}/libKPipeWireRecord.so
 
 #----------------------------------------------------------------------------
