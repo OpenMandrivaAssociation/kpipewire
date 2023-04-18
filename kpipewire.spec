@@ -5,7 +5,7 @@
 Summary:	Library for working with PipeWire
 Name:		kpipewire
 Version:	5.27.4
-Release:	2
+Release:	3
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
@@ -59,6 +59,7 @@ Summary:	Development files for %{name}
 Group:		Development/KDE and Qt
 Requires:	%{libname} = %{EVRD}
 Requires:	pkgconfig(libpipewire-0.3)
+Requires:	pkgconfig(epoxy)
 
 %description -n %{devname}
 Development files for %{name}.
