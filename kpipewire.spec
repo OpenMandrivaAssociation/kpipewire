@@ -1,11 +1,15 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
-%define libname %mklibname KPipeWire
-%define devname %mklibname -d KPipeWire
+# Versioned libname is intentional:
+# Latest libKPipeWire in plasma6-kpipewire; this is a compat package.
+%define libname %mklibname KPipeWire 5
+%define devname %mklibname -d KPipeWire 5
+%define unversionedlibname %mklibname KPipeWire
+%define unversioneddevname %mklibname -d KPipeWire
 
 Summary:	Library for working with PipeWire
 Name:		kpipewire
 Version:	5.27.7
-Release:	1
+Release:	2
 License:	LGPL
 Group:		System/Libraries
 Url:		http://kde.org/
@@ -43,6 +47,7 @@ Libraries for working with PipeWire
 %package -n %{libname}
 Summary:	Libraries for working with PipeWire
 Group:		System/Libraries
+%rename %{unversionedlibname}
 
 %description -n %{libname}
 Libraries for working with PipeWire
@@ -60,6 +65,7 @@ Group:		Development/KDE and Qt
 Requires:	%{libname} = %{EVRD}
 Requires:	pkgconfig(libpipewire-0.3)
 Requires:	pkgconfig(epoxy)
+%rename %{unversioneddevname}
 
 %description -n %{devname}
 Development files for %{name}.
