@@ -12,7 +12,7 @@ Version:	5.27.11
 Release:	1
 License:	LGPL
 Group:		System/Libraries
-Url:		http://kde.org/
+Url:		https://kde.org/
 Source0:	http://download.kde.org/%{stable}/plasma/%(echo %{version} |cut -d. -f1-3)/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5Wayland)
