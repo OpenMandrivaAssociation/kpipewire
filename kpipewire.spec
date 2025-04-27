@@ -1,14 +1,14 @@
 %define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
-%define uvlibname %mklibname KPipeWire
-%define libname %mklibname KPipeWire-plasma6
-%define uvdevname %mklibname KPipeWire -d
-%define devname %mklibname KPipeWire-plasma6 -d
+%define libname %mklibname KPipeWire
+%define oldlibname %mklibname KPipeWire-plasma6
+%define devname %mklibname KPipeWire -d
+%define olddevname %mklibname KPipeWire-plasma6 -d
 #define git 20240222
 %define gitbranch Plasma/6.0
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
-Name: plasma6-kpipewire
+Name: kpipewire
 Version: 6.3.4
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
@@ -20,7 +20,6 @@ Summary: A set of convenient classes to use PipeWire in Qt projects
 URL: https://invent.kde.org/plasma/kpipewire
 License: CC0-1.0 LGPL-2.0+ LGPL-2.1 LGPL-3.0
 Group: System/Libraries
-BuildRequires: cmake
 BuildRequires: cmake(ECM)
 BuildRequires: gettext
 BuildRequires: python
@@ -59,6 +58,8 @@ Requires: %{libname} = %{EVRD}
 BuildSystem: cmake
 BuildOption: -DBUILD_QCH:BOOL=ON
 BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+# Renamed 2025-04-27 after 6.0
+%rename plasma6-kpipewire
 
 %patchlist
 
@@ -69,7 +70,8 @@ A set of convenient classes to use PipeWire in Qt projects
 Summary: A set of convenient classes to use PipeWire in Qt projects
 Group: System/Libraries
 Requires: %{name} = %{EVRD}
-Obsoletes: %{uvlibname} > 5.240.0-0
+# Renamed 2025-04-27 after 6.0
+%rename %{oldlibname}
 
 %description -n %{libname}
 A set of convenient classes to use PipeWire in Qt projects
@@ -78,15 +80,14 @@ A set of convenient classes to use PipeWire in Qt projects
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{libname} = %{EVRD}
-Obsoletes: %{uvdevname} > 5.240.0-0
 Requires: pkgconfig(epoxy)
+# Renamed 2025-04-27 after 6.0
+%rename %{olddevname}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
 
 A set of convenient classes to use PipeWire in Qt projects
-
-#find_lang %{name} --all-name --with-qt --with-html
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories6/kpipewire.*
