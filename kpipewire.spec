@@ -62,6 +62,7 @@ BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 %rename plasma6-kpipewire
 
 %patchlist
+kpipewire-6.4.4-ffmpeg-8.0.patch
 
 %description
 A set of convenient classes to use PipeWire in Qt projects
