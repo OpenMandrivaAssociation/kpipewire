@@ -9,7 +9,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: kpipewire
-Version: 6.4.5
+Version: 6.5.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/kpipewire/-/archive/%{gitbranch}/kpipewire-%{gitbranchd}.tar.bz2#/kpipewire-%{git}.tar.bz2
@@ -62,7 +62,6 @@ BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 %rename plasma6-kpipewire
 
 %patchlist
-kpipewire-6.4.4-ffmpeg-8.0.patch
 
 %description
 A set of convenient classes to use PipeWire in Qt projects
