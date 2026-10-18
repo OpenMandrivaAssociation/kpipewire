@@ -100,5 +100,6 @@ A set of convenient classes to use PipeWire in Qt projects
 %files -n %{libname}
 %{_libdir}/libKPipeWire.so*
 %{_libdir}/libKPipeWireDmaBuf.so*
+%{_libdir}/libKPipeWireMonitor.so*
 %{_libdir}/libKPipeWireRecord.so*
 %{_qtdir}/qml/org/kde/pipewire
